@@ -1,20 +1,23 @@
-.wrapper {
-    width: 100%;
-    height: 99vh;
-    background-color: azure;
-
-    .chart-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-}
+@import "../styles/colors.scss";
 
 .node {
     cursor: pointer;
 
     &-text {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    &-menu {
+        opacity: 0;
+        transition: all 0.15s ease-out;
+        fill: rgb(206, 206, 206);
+
+        &:hover {
+            fill: $blue;
+        }
+    }
+
+    &:hover &-menu {
+        opacity: 1;
     }
 }

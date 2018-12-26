@@ -1,8 +1,12 @@
 import * as shape from 'd3-shape';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+
 import { DialogflowService } from './services/dialogflow.service';
 import { GraphService } from './services/graph.service';
+
 import { Intent } from './types/intent.interface';
 import { Node, Link } from './types/graph.interface';
 
@@ -14,7 +18,7 @@ import { Node, Link } from './types/graph.interface';
 export class AppComponent implements OnInit {
 
   curve: any = shape.curveBundle;
-  view: any[] = [1920, 1080];
+  view: any[];
   autoZoom = false;
   panOnZoom = true;
   enableZoom = true;
@@ -27,7 +31,12 @@ export class AppComponent implements OnInit {
   constructor(
     private dialogflowService: DialogflowService,
     private graphService: GraphService,
-  ) { }
+    private dialog: MatDialog,
+    @Inject('Window') window: Window,
+  ) {
+    const { innerWidth, innerHeight } = window;
+    this.view = [innerWidth, innerHeight];
+  }
 
   async ngOnInit(): Promise<void> {
     this.intents = await this.dialogflowService.fetchIntents();
@@ -36,7 +45,9 @@ export class AppComponent implements OnInit {
     this.links = links;
   }
 
-  select(event): void {
-    console.log(event);
+  renameIntent(node: Node): void {
+    this.dialog
+      .open(ConfirmationDialogComponent, { width: '500px' })
+      .afterClosed().subscribe((data) => { console.log(data); });
   }
 }
