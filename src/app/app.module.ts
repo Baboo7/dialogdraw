@@ -5,22 +5,31 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxGraphModule } from '@swimlane/ngx-graph';
 
-import { AppRoutingModule } from './app-routing.module';
+import { MaterialModule } from './material.module';
+import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmationDialogComponent,
+  ],
+  entryComponents: [
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    MaterialModule,
+    RoutingModule,
     NgxChartsModule,
     NgxGraphModule,
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: 'Window', useValue: window },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
