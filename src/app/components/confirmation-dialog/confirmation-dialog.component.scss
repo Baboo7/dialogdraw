@@ -1,0 +1,15 @@
+@import "../../../styles/colors.scss";
+
+:host {
+    text-align: center;
+
+    .title {
+        color: $blue;
+        text-align: center;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+    }
+}
