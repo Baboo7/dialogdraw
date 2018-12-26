@@ -1,14 +1,15 @@
-@import "../../../styles/colors.scss";
-
-:host {
+.dialog {
     text-align: center;
 
-    .title {
-        color: $blue;
+    &-title {
         text-align: center;
     }
 
-    .actions {
+    &-input {
+        width: 100%;
+    }
+
+    &-actions {
         display: flex;
         justify-content: center;
     }

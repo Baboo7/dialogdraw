@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { DialogflowService } from './services/dialogflow.service';
 import { GraphService } from './services/graph.service';
+import { MaterialModule } from './material.module';
 
 const MockDialogflowService = {};
 const MockGraphService = {};
@@ -12,12 +13,14 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MaterialModule,
       ],
       declarations: [
         AppComponent
       ],
       providers: [
+        { provide: 'Window', useValue: window },
         { provide: DialogflowService, useValue: MockDialogflowService },
         { provide: GraphService, useValue: MockGraphService },
       ],

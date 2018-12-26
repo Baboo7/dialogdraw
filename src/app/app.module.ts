@@ -4,19 +4,20 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxGraphModule } from '@swimlane/ngx-graph';
+import { FormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material.module';
 import { RoutingModule } from './routing.module';
 import { AppComponent } from './app.component';
-import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { InputDialogComponent } from './components/input-dialog/input-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConfirmationDialogComponent,
+    InputDialogComponent,
   ],
   entryComponents: [
-    ConfirmationDialogComponent,
+    InputDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +27,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     NgxGraphModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [
     { provide: 'Window', useValue: window },

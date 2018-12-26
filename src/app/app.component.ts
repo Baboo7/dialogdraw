@@ -2,7 +2,7 @@ import * as shape from 'd3-shape';
 
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { InputDialogComponent } from './components/input-dialog/input-dialog.component';
 
 import { DialogflowService } from './services/dialogflow.service';
 import { GraphService } from './services/graph.service';
@@ -47,7 +47,12 @@ export class AppComponent implements OnInit {
 
   renameIntent(node: Node): void {
     this.dialog
-      .open(ConfirmationDialogComponent, { width: '500px' })
-      .afterClosed().subscribe((data) => { console.log(data); });
+      .open(InputDialogComponent, {
+        width: '500px',
+        data: {
+          input: node.label,
+        },
+      })
+      .afterClosed().subscribe((data) => { });
   }
 }

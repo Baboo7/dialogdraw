@@ -1,0 +1,16 @@
+<div class="dialog">
+  <div mat-dialog-title class="dialog-title">
+    <span>Renommer</span>
+  </div>
+  <mat-form-field class="dialog-input">
+    <input matInput placeholder="Nom" [(ngModel)]="input">
+  </mat-form-field>
+  <div mat-dialog-actions class="dialog-actions">
+    <button mat-button
+      (click)="cancel(null)"
+    >{{ 'Annuler' | uppercase }}</button>
+    <button mat-button
+      (click)="save()"
+    >{{ 'Confirmer' | uppercase }}</button>
+  </div>
+</div>

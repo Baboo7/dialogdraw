@@ -1,25 +1,30 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConfirmationDialogComponent } from './confirmation-dialog.component';
-import { MatDialogRef } from '@angular/material';
+import { InputDialogComponent } from './input-dialog.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { MaterialModule } from '../../material.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const MockMatDialogRef = {
   close() { }
 };
 
-describe('ConfirmationDialogComponent', () => {
-  let component: ConfirmationDialogComponent;
-  let fixture: ComponentFixture<ConfirmationDialogComponent>;
+describe('InputDialogComponent', () => {
+  let component: InputDialogComponent;
+  let fixture: ComponentFixture<InputDialogComponent>;
   let spyOnMatDialogRefClose;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule],
-      declarations: [ConfirmationDialogComponent],
+      imports: [
+        MaterialModule,
+        NoopAnimationsModule,
+      ],
+      declarations: [InputDialogComponent],
       providers: [
         { provide: MatDialogRef, useValue: MockMatDialogRef },
+        { provide: MAT_DIALOG_DATA, useValue: {} },
       ],
       schemas: [NO_ERRORS_SCHEMA]
     })
@@ -27,7 +32,7 @@ describe('ConfirmationDialogComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConfirmationDialogComponent);
+    fixture = TestBed.createComponent(InputDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     spyOnMatDialogRefClose = spyOn(TestBed.get(MatDialogRef), 'close').and.callThrough();
@@ -38,7 +43,7 @@ describe('ConfirmationDialogComponent', () => {
   });
 
   it('should close dialog on close', () => {
-    component.close({ confirm: false });
+    component.cancel();
     expect(spyOnMatDialogRefClose).toHaveBeenCalled();
   });
 
