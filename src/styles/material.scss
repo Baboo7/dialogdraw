@@ -1,0 +1,116 @@
+@import './colors.scss';
+
+body {
+    .mat-radio-button {
+        margin: 0 12px;
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: 300;
+
+        &.mat-accent {
+            .mat-radio-ripple {
+                .mat-ripple-element {
+                    background-color: $blue;
+                    opacity: 0.26;
+                }
+            }
+
+            &.mat-radio-checked {
+                .mat-radio-outer-circle {
+                    border-color: $blue;
+                }
+
+                .mat-radio-inner-circle {
+                    background-color: $blue;
+                }
+
+                .mat-radio-label-content {
+                    color: $blue;
+                }
+            }
+        }
+    }
+
+    .mat-checkbox {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .mat-checkbox-indeterminate, .mat-checkbox-checked {
+        &.mat-accent, &.mat-primary {
+            .mat-checkbox-background {
+                background-color: $blue;
+            }
+        }
+    }
+
+    .mat-checkbox:not(.mat-checkbox-disabled) {
+        &.mat-accent {
+            .mat-checkbox-ripple {
+                .mat-ripple-element {
+                    background-color: $blue;
+                    opacity: 0.26;
+                }
+            }
+        }
+    }
+
+    .mat-input-placeholder {
+        color: #fff;
+        font-size: 2em;
+    }
+
+    .mat-input-element {
+        caret-color: black;
+    }
+
+    .mat-form-field-ripple {
+        background-color: $blue;
+    }
+
+    .mat-form-field.mat-focused {
+        color: $blue;
+
+        .mat-form-field-label {
+            color: $blue;
+        }
+
+        .mat-form-field-ripple {
+            background-color: $blue;
+        }
+    }
+
+    .mat-slide-toggle {
+        &.mat-checked {
+            &:not(.mat-disabled) {
+                .mat-ripple-element {
+                    background-color: $blue;
+                    opacity: 0.26;
+                }
+
+                .mat-slide-toggle-thumb {
+                    background-color: $blue;
+                }
+                .mat-slide-toggle-bar {
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+
+    .mat-menu-item {
+        &:hover {
+            color: $blue;
+            background-color: transparent !important;
+        }
+    }
+}
+
+.mat-header-row {
+    .mat-header-cell {
+        color: $blue;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 19px;
+    }
+}
